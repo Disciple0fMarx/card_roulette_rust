@@ -3,13 +3,12 @@ mod simulate;
 
 use std::env;
 use std::process;
-use std::time::Instant;
+use std::time::{Instant, Duration};
 
 use card_roulette::CardRoulette;
 use simulate::simulate_games;
 
 const RED: &str = "\x1b[31m";
-// const GREEN: &str = "\x1b[32m";
 const YELLOW: &str = "\x1b[33m";
 const BLUE: &str = "\x1b[34m";
 const RESET: &str = "\x1b[0m";
@@ -49,16 +48,15 @@ fn main() {
                 num_players = args[3].parse().expect(&format!("{}Invalid number of players{}", RED, RESET));
                 num_rounds = args[5].parse().expect(&format!("{}Invalid number of rounds{}", RED, RESET));
             } else {
-                // Set default values here
-                num_players = 3; // Default number of players
-                num_rounds = 3; // Default number of rounds
+                num_players = 3;
+                num_rounds = 3;
             }
 
             let mut game: CardRoulette = CardRoulette::new(num_players, num_rounds);
             game.play_game();
 
-            let end_time = Instant::now();
-            let elapsed_time = end_time.duration_since(start_time);
+            let end_time: Instant = Instant::now();
+            let elapsed_time: Duration = end_time.duration_since(start_time);
             println!("{}Elapsed time: {:?}{}", BLUE, elapsed_time, RESET);
         }
         "simulate" => {
@@ -73,16 +71,15 @@ fn main() {
                 num_players = args[5].parse().expect(&format!("{}Invalid number of players{}", RED, RESET));
                 num_rounds = args[7].parse().expect(&format!("{}Invalid number of rounds{}", RED, RESET));
             } else {
-                // Set default values here
-                num_games = 5; // Default number of games
-                num_players = 3; // Default number of players
-                num_rounds = 3; // Default number of rounds
+                num_games = 5;
+                num_players = 3;
+                num_rounds = 3;
             }
 
             simulate_games(num_games, num_players, num_rounds);
 
-            let end_time = Instant::now();
-            let elapsed_time = end_time.duration_since(start_time);
+            let end_time: Instant = Instant::now();
+            let elapsed_time: Duration = end_time.duration_since(start_time);
             println!("{}Elapsed time: {:?}{}", BLUE, elapsed_time, RESET);
         }
         "help" => {

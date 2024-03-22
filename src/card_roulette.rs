@@ -4,7 +4,6 @@ use rand::thread_rng;
 const RED: &str = "\x1b[31m";
 const GREEN: &str = "\x1b[32m";
 const YELLOW: &str = "\x1b[33m";
-// const BLUE: &str = "\x1b[34m";
 const PURPLE: &str = "\x1b[35m";
 const RESET: &str = "\x1b[0m";
 
