@@ -4,8 +4,6 @@ A Rust implementation of the thrilling card game where players draw cards, hopin
 
 Looking for the Python version? You can find it [here](https://github.com/Disciple0fMarx/card_roulette).
 
----
-
 ## Description
 
 Card Roulette is a text-based game where players draw cards in rounds.
